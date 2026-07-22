@@ -12,11 +12,11 @@ document.getElementById('loadBtn').addEventListener('click', async () => {
   }
 
   try {
-    const response = await fetch(`${BACKEND_URL}/api/servers`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ apiKey })
-    });
+    const response = await fetch('http://104.21.2.148:2041/api/servers', { // ganti dengan IP:Port server Node.js Anda
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ apiKey })
+});
 
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Gagal memuat server');
